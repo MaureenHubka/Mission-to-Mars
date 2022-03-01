@@ -10,6 +10,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
+    print("================")
+    print("Ready to kick off")
+    print("================ \n\n")
     mars_record = mongo.db.mars.find_one()
     # print(mars_record)
     return render_template("index.html", mars=mars_record)
@@ -25,4 +28,4 @@ def scrape():
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
